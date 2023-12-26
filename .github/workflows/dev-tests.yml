@@ -1,12 +1,10 @@
 name: Dev Tests
 
 on:
-  push:
-    branches:
-      - development
   pull_request:
     branches:
       - development
+      - main
 
 jobs:
   tests:
