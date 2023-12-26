@@ -1,5 +1,5 @@
 // Big O: O(N)
-export default function linearSearch (sortedArray: any[], target: any): number {
+export function linearSearch (sortedArray: any[], target: any): number {
   if (!Array.isArray(sortedArray)) {
     console.error('linearSearch expects an array')
     return -1

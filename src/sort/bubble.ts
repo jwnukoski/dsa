@@ -1,7 +1,7 @@
 import { swapArrayValues } from './common'
 
 // Big O: O(n^2)
-export default function bubbleSort (array: number[], asc: boolean = true): number[] {
+export function bubbleSort (array: number[], asc: boolean = true): number[] {
   if (!Array.isArray(array)) {
     console.error('bubbleSort expects an array')
     return []

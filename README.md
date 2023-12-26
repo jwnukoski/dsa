@@ -1,4 +1,4 @@
-# DSA
+# ts-datastructs-algos
 Data structures, algorithms, and other functions written in TypeScript.
 
 ## Development
@@ -18,7 +18,18 @@ Install packages with:
     bun install
 ```
 
-### Running tests
+### Tests
+Run tests with:
 ```bash
     bun test
 ```
+
+Test are located in the ./tests directory.
+
+### Building
+```bash
+    bun run build
+```
+**Note:** ``bun build`` will not work.
+
+Build files are outputed to the ./dist folder.

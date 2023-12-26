@@ -1,6 +1,6 @@
 import { swapArrayValues } from './common'
 
-export default function selectionSort (array: number[], asc = true): number[] {
+export function selectionSort (array: number[], asc = true): number[] {
   if (!Array.isArray(array)) {
     console.error('selectionSort expects an array')
     return []

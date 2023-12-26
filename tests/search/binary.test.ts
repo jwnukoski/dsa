@@ -1,5 +1,5 @@
 import { expect, test, describe } from 'bun:test'
-import binarySearch from '../../search/binary'
+import { binarySearch } from '../../src/search/binary'
 
 describe('binarySearch', () => {
   test('finds the middle target in an odd length array', () => {
