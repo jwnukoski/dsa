@@ -25,8 +25,10 @@ Contributions are welcome!
 ### General Rules
 1. This project is intended to be **readable** by developers of all levels. This is intended to help developers contribute and learn concepts. Always avoid unnecessary shorthand code.  
 2. Where possible, functions should be written in a immutable way and always return something.  
-3. ESlint is provided for consistent styling. Do not modify the .eslintrc.yml file.  
-4. Create a branch for your changes, create a pull request to 'development'. Pull requests on the 'main' branch are automatically built published to npm.
+3. Include type checking at the begginning of functions for when TypeScript is not used or a runtime issue occurs.  
+4. ESlint is provided for consistent styling. Do not modify the .eslintrc.yml file.  
+5. Create a branch for your changes, create a pull request to 'development'. Pull requests on the 'main' branch are automatically published to npm.  
+6. Avoid additional dependencies at all costs.  
 
 ### Prerequisites
 This project uses [bun.sh](https://bun.sh/).  
