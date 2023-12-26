@@ -1,5 +1,5 @@
 // Big O: O(log n)
-export default function binarySearch (sortedArray: number[], target: number): number {
+export function binarySearch (sortedArray: number[], target: number): number {
   if (!Array.isArray(sortedArray)) {
     console.error('binarySearch expects an array')
     return -1

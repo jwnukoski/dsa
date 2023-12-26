@@ -1,7 +1,7 @@
 {
   "name": "jwnukoski-dsa",
   "version": "0.1.0",
-  "module": "./dist/bundles.js",
+  "module": "./src/index.ts",
   "type": "module",
   "main": "./dist/bundle.js",
   "types": "./dist/types.d.ts",
@@ -13,7 +13,6 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.5.0",
     "eslint-plugin-promise": "^6.1.1",
-    "jest": "^29.7.0",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
@@ -24,8 +23,9 @@
     "url": "git+https://github.com/jwnukoski/dsa.git"
   },
   "scripts": {
-    "build": "bun build ./src/index.ts && bun run build:declaration",
+    "build": "bun build --target=node ./src/index.ts --outfile=dist/bundle.js && bun run build:declaration",
     "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json",
+    "postbuild": "rimraf tsconfig.types.tsbuildinfo",
     "test": "bun test"
   },
   "keywords": [

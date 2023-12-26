@@ -1,4 +1,4 @@
-export default function insertionSort (array: number[], asc = true): number[] {
+export function insertionSort (array: number[], asc = true): number[] {
   if (!Array.isArray(array)) {
     console.error('insertionSort expects an array')
     return []

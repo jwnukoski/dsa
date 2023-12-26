@@ -1,5 +1,5 @@
 import { expect, test, describe } from 'bun:test'
-import insertionSort from '../../src/sort/insertion'
+import { insertionSort } from '../../src/sort/insertion'
 
 describe('insertionSort', () => {
   test('sorts numbers ascending', () => {

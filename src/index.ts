@@ -1,17 +1,12 @@
-import binarySearch from './search/binary'
-import bubbleSort from './sort/bubble'
-import { hasDuplicates } from './conditions/hasDuplicates'
-import insertionSort from './sort/insertion'
-import linearSearch from './search/linear'
-import selectionSort from './sort/selection'
-import { swapArrayValues } from './sort/common'
+/* Conditions */
+export { hasDuplicates } from './conditions/hasDuplicates'
 
-module.exports = {
-  binarySearch,
-  bubbleSort,
-  hasDuplicates,
-  insertionSort,
-  linearSearch,
-  selectionSort,
-  swapArrayValues
-}
+/* Searches */
+export { binarySearch } from './search/binary'
+export { linearSearch } from './search/linear'
+
+/* Sorts */
+export { bubbleSort } from './sort/bubble'
+export { swapArrayValues } from './sort/common'
+export { insertionSort } from './sort/insertion'
+export { selectionSort } from './sort/selection'
