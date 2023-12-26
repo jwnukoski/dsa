@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "module": "./src/index.ts",
   "type": "module",
-  "main": "./dist/bundle.js",
+  "main": "./dist/index.js",
   "types": "./dist/types.d.ts",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.15.0",
@@ -23,7 +23,7 @@
     "url": "git+https://github.com/jwnukoski/dsa.git"
   },
   "scripts": {
-    "build": "bun build --target=node ./src/index.ts --outfile=dist/bundle.js && bun run build:declaration",
+    "build": "bun build --target=node ./src/index.ts --outfile=dist/index.js --minify && bun run build:declaration",
     "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json",
     "postbuild": "rimraf tsconfig.types.tsbuildinfo",
     "test": "bun test"

@@ -6,5 +6,5 @@ parserOptions:
   ecmaVersion: latest
   sourceType: module
   project: './tsconfig.json'
-ignorePatterns: ['dist/index.d.ts']
+ignorePatterns: ['dist/*']
 rules: {}
