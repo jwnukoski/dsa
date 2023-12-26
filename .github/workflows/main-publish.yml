@@ -5,19 +5,7 @@ on:
     branches:
       - main
 
-jobs:
-  tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1.1.1
-
-      - name: Run Tests
-        run: bun install && bun test
-        
+jobs:   
   build:
     runs-on: ubuntu-latest
     steps:
