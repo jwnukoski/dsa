@@ -1,13 +1,11 @@
-name: Bun Tests
+name: Dev Tests
 
 on:
   push:
     branches:
-      - main
       - development
   pull_request:
     branches:
-      - main
       - development
 
 jobs:
