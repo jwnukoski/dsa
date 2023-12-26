@@ -1,5 +1,5 @@
 import { expect, test, describe } from 'bun:test'
-import selectionSort from '../../sort/selection'
+import selectionSort from '../../src/sort/selection'
 
 describe('selectionSort', () => {
   test('sorts numbers ascending', () => {

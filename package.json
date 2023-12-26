@@ -1,8 +1,10 @@
 {
   "name": "jwnukoski-dsa",
   "version": "0.1.0",
-  "module": "index.ts",
+  "module": "./dist/bundles.js",
   "type": "module",
+  "main": "./dist/bundle.js",
+  "types": "./dist/types.d.ts",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "bun-types": "latest",
@@ -20,6 +22,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jwnukoski/dsa.git"
+  },
+  "scripts": {
+    "build": "tsc && bun build ./src/index.ts --outfile=./dist/bundle.js",
+    "test": "bun test"
   },
   "keywords": [
     "data",

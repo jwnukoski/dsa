@@ -1,5 +1,5 @@
 import { expect, test, describe } from 'bun:test'
-import linearSeach from '../../search/linear'
+import linearSeach from '../../src/search/linear'
 
 describe('linearSeach', () => {
   test('finds the middle target in an odd length array', () => {
