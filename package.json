@@ -1,5 +1,5 @@
 {
-  "name": "jwnukoski-dsa",
+  "name": "ts-datastructs-algos",
   "version": "0.1.0",
   "module": "./src/index.ts",
   "type": "module",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jwnukoski/dsa.git"
+    "url": "git+https://github.com/jwnukoski/ts-datastructs-algos.git"
   },
   "scripts": {
     "build": "bun build --target=node ./src/index.ts --outfile=dist/index.js --minify && bun run build:declaration",
@@ -37,7 +37,7 @@
   "author": "jwnukoski",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jwnukoski/dsa/issues"
+    "url": "https://github.com/jwnukoski/ts-datastructs-algos/issues"
   },
-  "homepage": "https://github.com/jwnukoski/dsa#readme"
+  "homepage": "https://github.com/jwnukoski/ts-datastructs-algos#readme"
 }

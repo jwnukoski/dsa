@@ -1,4 +1,4 @@
-# DSA
+# ts-datastructs-algos
 Data structures, algorithms, and other functions written in TypeScript.
 
 ## Development
