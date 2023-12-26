@@ -1,12 +1,34 @@
 # ts-datastructs-algos
 Data structures, algorithms, and other functions written in TypeScript.
 
+## Usage
+
+### Example
+```javascript
+import { binarySearch } from 'ts-datastructs-algos'
+const sortedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+console.log(binarySearch(sortedArray, 5))
+```
+
+### Methods
+- hasDuplicates
+- binarySearch
+- linearSearch
+- bubbleSort
+- swapArrayValues
+- insertionSort
+- selectionSort
+
 ## Development
+Contributions are welcome!
+
 ### General Rules
-Contributions are welcome. Follow the below rules:  
-1. This project is intended to be **readable** by developers of all levels. This is so to help developers contribute and learn concepts. Always avoid unnecessary shorthand code.  
+1. This project is intended to be **readable** by developers of all levels. This is intended to help developers contribute and learn concepts. Always avoid unnecessary shorthand code.  
 2. Where possible, functions should be written in a immutable way and always return something.  
-3. ESlint is provided for consistent styling. Do not modify the .eslintrc.yml file.  
+3. Include type checking at the begginning of functions for when TypeScript is not used or a runtime issue occurs.  
+4. ESlint is provided for consistent styling. Do not modify the .eslintrc.yml file.  
+5. Create a branch for your changes, create a pull request to 'development'. Pull requests on the 'main' branch are automatically published to npm.  
+6. Avoid additional dependencies at all costs.  
 
 ### Prerequisites
 This project uses [bun.sh](https://bun.sh/).  
