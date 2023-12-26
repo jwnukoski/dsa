@@ -1,0 +1,10 @@
+src
+.github
+tests
+.eslintrc.yml
+bun.lockb
+.gitignore
+.git
+tsconfig.json
+tsconfig.types.json
+node_modules
