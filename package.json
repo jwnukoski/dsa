@@ -24,7 +24,8 @@
     "url": "git+https://github.com/jwnukoski/dsa.git"
   },
   "scripts": {
-    "build": "tsc && bun build ./src/index.ts --outfile=./dist/bundle.js",
+    "build": "bun build ./src/index.ts && bun run build:declaration",
+    "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json",
     "test": "bun test"
   },
   "keywords": [
