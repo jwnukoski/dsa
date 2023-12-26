@@ -1,6 +1,11 @@
 import { swapArrayValues } from './common'
 
-// Big O: O(n^2)
+/**
+ * @description Big O: O(n^2). Returns a sorted copy an array of numbers using the bubble sort algorithm. If no sort is possible, the same array will be returned.
+ * @param array Array of numbers to sort.
+ * @param asc Sort array ascending if true, descending if false.
+ * @returns A sorted copy of the given array, or the original array unsorted.
+ */
 export function bubbleSort (array: number[], asc: boolean = true): number[] {
   if (!Array.isArray(array)) {
     console.error('bubbleSort expects an array')

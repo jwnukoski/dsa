@@ -1,4 +1,10 @@
-// Big O: O(log n)
+/**
+ *
+ * @description Big O: O(log n). Searches a sorted array for a target value using binary search, and returns the target index.
+ * @param sortedArray An array of numbers. Must be sorted.
+ * @param target Number to search for in the array.
+ * @returns {number} Index of the target value if found, -1 otherwise.
+ */
 export function binarySearch (sortedArray: number[], target: number): number {
   if (!Array.isArray(sortedArray)) {
     console.error('binarySearch expects an array')
