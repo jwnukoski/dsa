@@ -1,6 +1,6 @@
 {
   "name": "ts-datastructs-algos",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "module": "./dist/index.js",
   "type": "module",
   "main": "./dist/index.js",
