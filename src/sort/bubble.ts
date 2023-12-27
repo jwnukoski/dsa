@@ -1,4 +1,4 @@
-import { swapArrayValues } from './common'
+import { swapArrayValues } from '../utils/swapArrayValues'
 
 /**
  * @description Big O: O(n^2). Returns a sorted copy an array of numbers using the bubble sort algorithm. If no sort is possible, the same array will be returned.
