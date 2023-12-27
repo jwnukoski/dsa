@@ -1,9 +1,9 @@
 let structuredCloneFailed = false
 
 /**
- * @description Copies an object and returns the copy. This is a deep copy, meaning that nested objects and arrays will also be copied.
- * @param objectToCopy
- * @param allowFallback If true (default), will use a fallback method if structuredClone fails. If false, will throw an error and not attempt the fallback copy using JSON methods.
+ * @description Copies an object and returns a deep copy (nested values).
+ * @param objectToCopy The object to deep copy.
+ * @param allowFallback If true (default), a fallback method using JSON methods will be used when structuredClone fails. If false, no fallback will be used. This can lead to errors with functions and dates.
  * @param forceFallback If true, will use the fallback method even if structuredClone may work. Generally shouldn't be used except for testing.
  * @returns {any} A copy of the given object. Null if the object could not be copied.
  */
