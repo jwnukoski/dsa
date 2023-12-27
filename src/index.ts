@@ -7,6 +7,9 @@ export { linearSearch } from './search/linear'
 
 /* Sorts */
 export { bubbleSort } from './sort/bubble'
-export { swapArrayValues } from './sort/common'
 export { insertionSort } from './sort/insertion'
 export { selectionSort } from './sort/selection'
+
+/* Utils */
+export { deepCopy } from './utils/deepCopy'
+export { swapArrayValues } from './utils/swapArrayValues'
