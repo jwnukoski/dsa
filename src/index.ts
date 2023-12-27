@@ -11,7 +11,7 @@ export { insertionSort } from './sort/insertion'
 export { selectionSort } from './sort/selection'
 
 /* Structs */
-export { LinkedList } from './structs/linkedList'
+export { SinglyLinkedList } from './structs/singlyLinkedList'
 
 /* Utils */
 export { deepCopy } from './utils/deepCopy'

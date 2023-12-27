@@ -1,5 +1,6 @@
 # ts-datastructs-algos
-Data structures, algorithms, and other useful functions written in TypeScript.
+Data structures, algorithms, and other useful functions written in TypeScript.  
+This package is still in development.
 
 ## Usage
 [Install the package from npmjs.com](https://www.npmjs.com/package/ts-datastructs-algos).
@@ -20,7 +21,7 @@ const sortedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 console.log(binarySearch(sortedArray, 5))
 ```
 
-### Methods
+### Exports
 #### Condition Checks
 - hasDuplicates
 
@@ -32,6 +33,9 @@ console.log(binarySearch(sortedArray, 5))
 - bubbleSort
 - insertionSort
 - selectionSort
+
+#### Structures
+- SinglyLinkedList
 
 #### Other Utilities
 - deepCopy
