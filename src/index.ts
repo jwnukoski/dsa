@@ -10,6 +10,9 @@ export { bubbleSort } from './sort/bubble'
 export { insertionSort } from './sort/insertion'
 export { selectionSort } from './sort/selection'
 
+/* Structs */
+export { LinkedList } from './structs/linkedList'
+
 /* Utils */
 export { deepCopy } from './utils/deepCopy'
 export { swapArrayValues } from './utils/swapArrayValues'
