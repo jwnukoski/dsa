@@ -8,7 +8,7 @@ let structuredCloneFailed = false
  * @returns {any} A copy of the given object. Null if the object could not be copied.
  */
 export function deepCopy (objectToCopy: any, allowFallback: boolean = true, forceFallback: boolean = false): any {
-  if (typeof objectToCopy !== 'object' && !Array.isArray(objectToCopy)) {
+  if (typeof objectToCopy !== 'object') {
     console.error('deepCopy expects an object')
     return objectToCopy
   }
@@ -32,10 +32,5 @@ export function deepCopy (objectToCopy: any, allowFallback: boolean = true, forc
  * @returns {any} A copy of the given object.
  */
 function deepCopyFallback (objectToCopy: any): any {
-  if (typeof objectToCopy !== 'object' && !Array.isArray(objectToCopy)) {
-    console.error('deepCopy expects an object')
-    return objectToCopy
-  }
-
   return JSON.parse(JSON.stringify(objectToCopy))
 }

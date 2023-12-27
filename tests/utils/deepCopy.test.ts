@@ -35,4 +35,13 @@ describe('deepCopy', () => {
     expect(copy).toEqual(deepObject)
     expect(copy).not.toBe(deepObject)
   })
+
+  test('supports copying deep arrays', () => {
+    const deepArray = [[1, 2], 3, 4, 5, { a: 1, b: 2, c: { d: 3, e: 4 } }]
+    const expectedCopyValues = [[1, 2], 3, 4, 5, { a: 1, b: 2, c: { d: 3, e: 4 } }]
+
+    const copy = deepCopy(deepArray)
+    expect(copy).toEqual(expectedCopyValues)
+    expect(copy).not.toBe(expectedCopyValues)
+  })
 })
