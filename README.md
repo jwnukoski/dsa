@@ -3,6 +3,15 @@ Data structures, algorithms, and other useful functions written in TypeScript.
 
 ## Usage
 [Install the package from npmjs.com](https://www.npmjs.com/package/ts-datastructs-algos).
+```bash
+    npm install ts-datastructs-algos
+```
+```bash
+    bun add ts-datastructs-algos
+```
+```bash
+    yarn add ts-datastructs-algos
+```
 
 ### Example
 ```javascript
@@ -45,6 +54,7 @@ Install it first if you plan on developing for this project.
   
 ### Packages
 Install packages with:
+Bun:
 ```bash
     bun install
 ```
