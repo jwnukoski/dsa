@@ -1,17 +1,19 @@
 class Node {
   data: any
   next: Node | null
+  previous: Node | null
 
   constructor (data: any) {
     this.data = data
     this.next = null
+    this.previous = null
   }
 }
 
 /**
- * @description A singly linked list.
+ * @description A doubly linked list.
  */
-export class SinglyLinkedList {
+export class DoublyLinkedList {
   head: Node | null
   tail: Node | null
   length: number
@@ -33,6 +35,7 @@ export class SinglyLinkedList {
 
     if (this.tail !== null) { this.tail.next = node }
 
+    node.previous = this.tail
     this.tail = node
 
     this.length++
@@ -132,10 +135,14 @@ export class SinglyLinkedList {
     }
 
     const prevNode = this.get(index - 1)
+
     if (prevNode === null) { return false }
 
     newNode.next = prevNode.next
+    newNode.previous = prevNode
     prevNode.next = newNode
+    prevNode.next.previous = newNode
+
     this.length++
 
     return true
@@ -164,5 +171,18 @@ export class SinglyLinkedList {
     this.length--
 
     return node
+  }
+
+  reverse (): void {
+    let current = this.head
+    this.head = this.tail
+    this.tail = current
+
+    while (current !== null) {
+      const next = current.next
+      current.next = current.previous
+      current.previous = next
+      current = next
+    }
   }
 }

@@ -1,13 +1,13 @@
 import { expect, test, describe } from 'bun:test'
-import { SinglyLinkedList } from '../../src/structs/singlyLinkedList'
+import { DoublyLinkedList } from '../../src/structs/doublyLinkedList'
 import { fail } from 'assert'
 
-describe('SinglyLinkedList', () => {
-  let linkedList: SinglyLinkedList | null = null
+describe('DoublyLinkedList', () => {
+  let linkedList: DoublyLinkedList | null = null
 
   test('creates a LinkedList', () => {
-    linkedList = new SinglyLinkedList()
-    expect(linkedList).toBeInstanceOf(SinglyLinkedList)
+    linkedList = new DoublyLinkedList()
+    expect(linkedList).toBeInstanceOf(DoublyLinkedList)
     expect(linkedList).not.toEqual(null)
   })
 
@@ -57,5 +57,19 @@ describe('SinglyLinkedList', () => {
 
     insertResult = linkedList.insert(50, 3)
     expect(insertResult).toBeFalse()
+  })
+
+  test('reverse mutates the list into an inverted version of itself', () => {
+    if (linkedList === null) { fail() }
+
+    expect(linkedList.get(0)?.data).toEqual(1)
+    expect(linkedList.get(1)?.data).toEqual(2)
+    expect(linkedList.get(2)?.data).toEqual(5)
+
+    linkedList.reverse()
+
+    expect(linkedList.get(0)?.data).toEqual(5)
+    expect(linkedList.get(1)?.data).toEqual(2)
+    expect(linkedList.get(2)?.data).toEqual(1)
   })
 })

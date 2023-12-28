@@ -12,6 +12,7 @@ export { selectionSort } from './sort/selection'
 
 /* Structs */
 export { SinglyLinkedList } from './structs/singlyLinkedList'
+export { DoublyLinkedList } from './structs/doublyLinkedList'
 
 /* Utils */
 export { deepCopy } from './utils/deepCopy'
