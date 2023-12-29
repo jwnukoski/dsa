@@ -165,4 +165,20 @@ export class SinglyLinkedList {
 
     return node
   }
+
+  /**
+   * @description Returns an array of the data in the list.
+   * @returns {any[]} An array of the data in the list.
+   */
+  toArray (): any[] {
+    const array: any[] = []
+
+    let currentNode: Node | null = this.head
+    while (currentNode !== null) {
+      array.push(currentNode.data)
+      currentNode = currentNode.next
+    }
+
+    return array
+  }
 }

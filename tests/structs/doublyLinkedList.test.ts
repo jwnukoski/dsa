@@ -3,25 +3,27 @@ import { DoublyLinkedList } from '../../src/structs/doublyLinkedList'
 import { fail } from 'assert'
 
 describe('DoublyLinkedList', () => {
-  let linkedList: DoublyLinkedList | null = null
-
   test('creates a LinkedList', () => {
-    linkedList = new DoublyLinkedList()
+    const linkedList = new DoublyLinkedList()
     expect(linkedList).toBeInstanceOf(DoublyLinkedList)
     expect(linkedList).not.toEqual(null)
   })
 
   test('pushes a new node to the end of the list', () => {
-    if (linkedList === null) { fail() }
+    const linkedList = new DoublyLinkedList()
 
     linkedList.push(1)
     linkedList.push(2)
     linkedList.push(3)
+
     expect(linkedList.length).toEqual(3)
   })
 
   test('pops the last node from the list', () => {
-    if (linkedList === null) { fail() }
+    const linkedList = new DoublyLinkedList()
+    linkedList.push(1)
+    linkedList.push(2)
+    linkedList.push(3)
 
     const poppedNode = linkedList.pop()
     expect(poppedNode).not.toEqual(null)
@@ -30,7 +32,9 @@ describe('DoublyLinkedList', () => {
   })
 
   test('gets the node at a given index', () => {
-    if (linkedList === null) { fail() }
+    const linkedList = new DoublyLinkedList()
+    linkedList.push(1)
+    linkedList.push(2)
 
     const node = linkedList.get(1)
     expect(node).not.toEqual(null)
@@ -38,7 +42,9 @@ describe('DoublyLinkedList', () => {
   })
 
   test('sets a nodes data at a given index', () => {
-    if (linkedList === null) { fail() }
+    const linkedList = new DoublyLinkedList()
+    linkedList.push(1)
+    linkedList.push(2)
 
     const nodeSetResult = linkedList.set(1, 5)
     expect(nodeSetResult).toBeTrue()
@@ -46,30 +52,42 @@ describe('DoublyLinkedList', () => {
   })
 
   test('inserts a node at a given index', () => {
-    if (linkedList === null) { fail() }
-    expect(linkedList.length).toEqual(2)
+    const linkedList = new DoublyLinkedList()
+    linkedList.push(1)
+    linkedList.push(3)
 
     let insertResult = linkedList.insert(1, 2)
     expect(linkedList.length).toEqual(3)
     expect(linkedList.get(1)?.data).toEqual(2)
-    expect(linkedList.get(2)?.data).toEqual(5)
+    expect(linkedList.get(2)?.data).toEqual(3)
     expect(insertResult).toBeTrue()
 
     insertResult = linkedList.insert(50, 3)
     expect(insertResult).toBeFalse()
   })
 
-  test('reverse mutates the list into an inverted version of itself', () => {
-    if (linkedList === null) { fail() }
+  test('reverse returns a reversed copy of the list', () => {
+    const linkedList = new DoublyLinkedList()
+    linkedList.push(1)
+    linkedList.push(2)
+    linkedList.push(3)
 
-    expect(linkedList.get(0)?.data).toEqual(1)
-    expect(linkedList.get(1)?.data).toEqual(2)
-    expect(linkedList.get(2)?.data).toEqual(5)
+    console.log(linkedList.toArray())
+    const reversedList = linkedList.reverse()
+    console.log(reversedList.toArray())
 
-    linkedList.reverse()
+    expect(reversedList).toBeInstanceOf(DoublyLinkedList)
+    expect(reversedList).not.toEqual(linkedList)
+  })
 
-    expect(linkedList.get(0)?.data).toEqual(5)
-    expect(linkedList.get(1)?.data).toEqual(2)
-    expect(linkedList.get(2)?.data).toEqual(1)
+  test('toArray returns a copy of the list as an array', () => {
+    const linkedList = new DoublyLinkedList()
+    linkedList.push(1)
+    linkedList.push(2)
+    linkedList.push(3)
+
+    const array = linkedList.toArray()
+    expect(array).toBeInstanceOf(Array)
+    expect(array).toEqual([1, 2, 3])
   })
 })

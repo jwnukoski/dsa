@@ -1,27 +1,28 @@
 import { expect, test, describe } from 'bun:test'
 import { SinglyLinkedList } from '../../src/structs/singlyLinkedList'
-import { fail } from 'assert'
 
-describe('SinglyLinkedList', () => {
-  let linkedList: SinglyLinkedList | null = null
-
+describe('DoublyLinkedList', () => {
   test('creates a LinkedList', () => {
-    linkedList = new SinglyLinkedList()
+    const linkedList = new SinglyLinkedList()
     expect(linkedList).toBeInstanceOf(SinglyLinkedList)
     expect(linkedList).not.toEqual(null)
   })
 
   test('pushes a new node to the end of the list', () => {
-    if (linkedList === null) { fail() }
+    const linkedList = new SinglyLinkedList()
 
     linkedList.push(1)
     linkedList.push(2)
     linkedList.push(3)
+
     expect(linkedList.length).toEqual(3)
   })
 
   test('pops the last node from the list', () => {
-    if (linkedList === null) { fail() }
+    const linkedList = new SinglyLinkedList()
+    linkedList.push(1)
+    linkedList.push(2)
+    linkedList.push(3)
 
     const poppedNode = linkedList.pop()
     expect(poppedNode).not.toEqual(null)
@@ -30,7 +31,9 @@ describe('SinglyLinkedList', () => {
   })
 
   test('gets the node at a given index', () => {
-    if (linkedList === null) { fail() }
+    const linkedList = new SinglyLinkedList()
+    linkedList.push(1)
+    linkedList.push(2)
 
     const node = linkedList.get(1)
     expect(node).not.toEqual(null)
@@ -38,7 +41,9 @@ describe('SinglyLinkedList', () => {
   })
 
   test('sets a nodes data at a given index', () => {
-    if (linkedList === null) { fail() }
+    const linkedList = new SinglyLinkedList()
+    linkedList.push(1)
+    linkedList.push(2)
 
     const nodeSetResult = linkedList.set(1, 5)
     expect(nodeSetResult).toBeTrue()
@@ -46,16 +51,28 @@ describe('SinglyLinkedList', () => {
   })
 
   test('inserts a node at a given index', () => {
-    if (linkedList === null) { fail() }
-    expect(linkedList.length).toEqual(2)
+    const linkedList = new SinglyLinkedList()
+    linkedList.push(1)
+    linkedList.push(3)
 
     let insertResult = linkedList.insert(1, 2)
     expect(linkedList.length).toEqual(3)
     expect(linkedList.get(1)?.data).toEqual(2)
-    expect(linkedList.get(2)?.data).toEqual(5)
+    expect(linkedList.get(2)?.data).toEqual(3)
     expect(insertResult).toBeTrue()
 
     insertResult = linkedList.insert(50, 3)
     expect(insertResult).toBeFalse()
+  })
+
+  test('toArray returns a copy of the list as an array', () => {
+    const linkedList = new SinglyLinkedList()
+    linkedList.push(1)
+    linkedList.push(2)
+    linkedList.push(3)
+
+    const array = linkedList.toArray()
+    expect(array).toBeInstanceOf(Array)
+    expect(array).toEqual([1, 2, 3])
   })
 })

@@ -173,16 +173,36 @@ export class DoublyLinkedList {
     return node
   }
 
-  reverse (): void {
-    let current = this.head
-    this.head = this.tail
-    this.tail = current
+  /**
+   * Returns a reversed copy of the list.
+   * @returns {DoublyLinkedList} A new list with the nodes in reverse order.
+   */
+  reverse (): DoublyLinkedList {
+    const reversedList = new DoublyLinkedList()
 
-    while (current !== null) {
-      const next = current.next
-      current.next = current.previous
-      current.previous = next
-      current = next
+    let currentNode: Node | null = this.tail
+
+    while (currentNode !== null) {
+      reversedList.push(currentNode?.data)
+      currentNode = currentNode?.previous ?? null
     }
+
+    return reversedList
+  }
+
+  /**
+   * @description Returns an array of the data in the list.
+   * @returns {any[]} An array of the data in the list.
+   */
+  toArray (): any[] {
+    const array: any[] = []
+
+    let currentNode: Node | null = this.head
+    while (currentNode !== null) {
+      array.push(currentNode.data)
+      currentNode = currentNode.next
+    }
+
+    return array
   }
 }
