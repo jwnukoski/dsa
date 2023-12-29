@@ -1,15 +1,16 @@
 import { expect, test, describe } from 'bun:test'
-import { SinglyLinkedList } from '../../src/structs/singlyLinkedList'
+import { DoublyLinkedList } from '../../src/structs/doublyLinkedList'
+import { fail } from 'assert'
 
 describe('DoublyLinkedList', () => {
   test('creates a LinkedList', () => {
-    const linkedList = new SinglyLinkedList()
-    expect(linkedList).toBeInstanceOf(SinglyLinkedList)
+    const linkedList = new DoublyLinkedList()
+    expect(linkedList).toBeInstanceOf(DoublyLinkedList)
     expect(linkedList).not.toEqual(null)
   })
 
   test('pushes a new node to the end of the list', () => {
-    const linkedList = new SinglyLinkedList()
+    const linkedList = new DoublyLinkedList()
 
     linkedList.push(1)
     linkedList.push(2)
@@ -19,7 +20,7 @@ describe('DoublyLinkedList', () => {
   })
 
   test('pops the last node from the list', () => {
-    const linkedList = new SinglyLinkedList()
+    const linkedList = new DoublyLinkedList()
     linkedList.push(1)
     linkedList.push(2)
     linkedList.push(3)
@@ -31,7 +32,7 @@ describe('DoublyLinkedList', () => {
   })
 
   test('gets the node at a given index', () => {
-    const linkedList = new SinglyLinkedList()
+    const linkedList = new DoublyLinkedList()
     linkedList.push(1)
     linkedList.push(2)
 
@@ -41,7 +42,7 @@ describe('DoublyLinkedList', () => {
   })
 
   test('sets a nodes data at a given index', () => {
-    const linkedList = new SinglyLinkedList()
+    const linkedList = new DoublyLinkedList()
     linkedList.push(1)
     linkedList.push(2)
 
@@ -51,7 +52,7 @@ describe('DoublyLinkedList', () => {
   })
 
   test('inserts a node at a given index', () => {
-    const linkedList = new SinglyLinkedList()
+    const linkedList = new DoublyLinkedList()
     linkedList.push(1)
     linkedList.push(3)
 
@@ -65,8 +66,22 @@ describe('DoublyLinkedList', () => {
     expect(insertResult).toBeFalse()
   })
 
+  test('reverse returns a reversed copy of the list', () => {
+    const linkedList = new DoublyLinkedList()
+    linkedList.push(1)
+    linkedList.push(2)
+    linkedList.push(3)
+
+    console.log(linkedList.toArray())
+    const reversedList = linkedList.reverse()
+    console.log(reversedList.toArray())
+
+    expect(reversedList).toBeInstanceOf(DoublyLinkedList)
+    expect(reversedList).not.toEqual(linkedList)
+  })
+
   test('toArray returns a copy of the list as an array', () => {
-    const linkedList = new SinglyLinkedList()
+    const linkedList = new DoublyLinkedList()
     linkedList.push(1)
     linkedList.push(2)
     linkedList.push(3)
