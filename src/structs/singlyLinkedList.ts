@@ -1,3 +1,6 @@
+/**
+ * @description A node in a singly linked list.
+ */
 class Node {
   data: any
   next: Node | null
