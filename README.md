@@ -22,8 +22,9 @@ console.log(binarySearch(sortedArray, 5))
 ```
 
 ### Exports
-#### Condition Checks
+#### Algorithms
 - hasDuplicates
+- twoSums
 
 #### Searches
 - binarySearch

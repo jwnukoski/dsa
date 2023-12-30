@@ -1,5 +1,6 @@
-/* Conditions */
-export { hasDuplicates } from './conditions/hasDuplicates'
+/* Algos */
+export { hasDuplicates } from './algos/hasDuplicates'
+export { twoSums } from './algos/twoSums'
 
 /* Searches */
 export { binarySearch } from './search/binary'
@@ -14,6 +15,7 @@ export { selectionSort } from './sort/selection'
 export { SinglyLinkedList } from './structs/singlyLinkedList'
 export { DoublyLinkedList } from './structs/doublyLinkedList'
 export { Stack } from './structs/stack'
+export { Queue } from './structs/queue'
 
 /* Utils */
 export { deepCopy } from './utils/deepCopy'
