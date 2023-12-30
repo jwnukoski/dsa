@@ -1,6 +1,5 @@
 import { expect, test, describe } from 'bun:test'
 import { DoublyLinkedList } from '../../src/structs/doublyLinkedList'
-import { fail } from 'assert'
 
 describe('DoublyLinkedList', () => {
   test('creates a LinkedList', () => {
@@ -72,9 +71,7 @@ describe('DoublyLinkedList', () => {
     linkedList.push(2)
     linkedList.push(3)
 
-    console.log(linkedList.toArray())
     const reversedList = linkedList.reverse()
-    console.log(reversedList.toArray())
 
     expect(reversedList).toBeInstanceOf(DoublyLinkedList)
     expect(reversedList).not.toEqual(linkedList)
