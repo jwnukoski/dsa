@@ -177,6 +177,38 @@ export class DoublyLinkedList {
   }
 
   /**
+   * @description Removes and returns the head. Can be useful for queues.
+   * @returns {Node | null} The removed node, or null if the list is empty.
+   */
+  removeHead (): Node | null {
+    if (this.head === null) { return null }
+
+    const oldHead = this.head
+
+    if (this.head.next !== null) {
+      this.head = this.head.next
+    }
+
+    this.length--
+
+    return oldHead
+  }
+
+  /**
+   * @description Removes and returns the tail.
+   * @returns {Node | null} The removed node, or null if the list is empty.
+   */
+  removeTail (): Node | null {
+    if (this.tail === null || this.head === null) { return null }
+
+    const oldTail: Node | null = this.tail
+    this.tail = this.tail.previous
+    this.length--
+
+    return oldTail
+  }
+
+  /**
    * Returns a reversed copy of the list.
    * @returns {DoublyLinkedList} A new list with the nodes in reverse order.
    */

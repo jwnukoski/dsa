@@ -170,6 +170,44 @@ export class SinglyLinkedList {
   }
 
   /**
+   * @description Removes and returns the head. Can be useful for queues.
+   * @returns {Node | null} The removed node, or null if the list is empty.
+   */
+  removeHead (): Node | null {
+    if (this.head === null) { return null }
+
+    const oldHead = this.head
+
+    if (this.head.next !== null) {
+      this.head = this.head.next
+    }
+
+    this.length--
+
+    return oldHead
+  }
+
+  /**
+   * @description Removes and returns the tail.
+   * @returns {Node | null} The removed node, or null if the list is empty.
+   */
+  removeTail (): Node | null {
+    if (this.tail === null || this.head === null) { return null }
+
+    const oldTail: Node | null = this.tail
+    let newTail: Node | null = this.head
+
+    while (newTail?.next !== oldTail) {
+      newTail = newTail?.next ?? null
+    }
+
+    this.length--
+
+    this.tail = newTail
+    return oldTail
+  }
+
+  /**
    * @description Returns an array of the data in the list.
    * @returns {any[]} An array of the data in the list.
    */

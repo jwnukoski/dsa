@@ -87,4 +87,27 @@ describe('DoublyLinkedList', () => {
     expect(array).toBeInstanceOf(Array)
     expect(array).toEqual([1, 2, 3])
   })
+
+  test('removeHead removes and returns the current head', () => {
+    const linkedList = new DoublyLinkedList()
+    linkedList.push(1)
+    linkedList.push(2)
+    linkedList.push(3)
+
+    const removedNode = linkedList.removeHead()
+    expect(removedNode?.data).toEqual(1)
+    expect(linkedList.length).toEqual(2)
+  })
+
+  test('removeTail removes and returns the current tail, sets the new tail, and sets the new length', () => {
+    const linkedList = new DoublyLinkedList()
+    linkedList.push(1)
+    linkedList.push(2)
+    linkedList.push(3)
+
+    const removedNode = linkedList.removeTail()
+    expect(removedNode?.data).toEqual(3)
+    expect(linkedList.length).toEqual(2)
+    expect(linkedList.tail?.data).toEqual(2)
+  })
 })
