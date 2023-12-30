@@ -17,14 +17,14 @@ class Node {
  * @description A doubly linked list.
  */
 export class DoublyLinkedList {
-  head: Node | null
-  tail: Node | null
-  length: number
+  #head: Node | null
+  #tail: Node | null
+  #length: number
 
   constructor () {
-    this.head = null
-    this.tail = null
-    this.length = 0
+    this.#head = null
+    this.#tail = null
+    this.#length = 0
   }
 
   /**
@@ -34,14 +34,14 @@ export class DoublyLinkedList {
   push (data: any): void {
     const node = new Node(data)
 
-    if (this.head === null) { this.head = node }
+    if (this.#head === null) { this.#head = node }
 
-    if (this.tail !== null) { this.tail.next = node }
+    if (this.#tail !== null) { this.#tail.next = node }
 
-    node.previous = this.tail
-    this.tail = node
+    node.previous = this.#tail
+    this.#tail = node
 
-    this.length++
+    this.#length++
   }
 
   /**
@@ -50,29 +50,29 @@ export class DoublyLinkedList {
    */
   pop (): Node | null {
     // Empty list
-    if (this.head === null || this.tail === null) { return null }
+    if (this.#head === null || this.#tail === null) { return null }
 
-    const oldTail = this.tail
+    const oldTail = this.#tail
 
     // Only 1 item in the list. Head and tail match.
-    if (this.head === this.tail && this.length === 1) {
-      this.head = null
-      this.tail = null
-      this.length = 0
+    if (this.#head === this.#tail && this.#length === 1) {
+      this.#head = null
+      this.#tail = null
+      this.#length = 0
 
       return oldTail
     }
 
     // Find the new tail
-    let newTail = this.head
-    while (newTail.next !== this.tail && newTail.next !== null) {
+    let newTail = this.#head
+    while (newTail.next !== this.#tail && newTail.next !== null) {
       newTail = newTail.next
     }
 
     // Garbage collect the old tail
     newTail.next = null
 
-    this.length--
+    this.#length--
 
     return oldTail
   }
@@ -83,10 +83,10 @@ export class DoublyLinkedList {
    * @returns {Node | null} The node at the given index, or null if the index is out of bounds.
    */
   get (index: number): Node | null {
-    if (index < 0 || index >= this.length) { return null }
+    if (index < 0 || index >= this.#length) { return null }
 
     let counter = 0
-    let current = this.head
+    let current = this.#head
 
     while (counter !== index && current !== null) {
       current = current.next
@@ -121,9 +121,9 @@ export class DoublyLinkedList {
    * @returns {boolean} True is successful, false otherwise
    */
   insert (index: number, data: any): boolean {
-    if (index < 0 || index > this.length) { return false }
+    if (index < 0 || index > this.#length) { return false }
 
-    if (index === this.length) {
+    if (index === this.#length) {
       this.push(data)
       return true
     }
@@ -131,9 +131,9 @@ export class DoublyLinkedList {
     const newNode = new Node(data)
 
     if (index === 0) {
-      newNode.next = this.head
-      this.head = newNode
-      this.length++
+      newNode.next = this.#head
+      this.#head = newNode
+      this.#length++
       return true
     }
 
@@ -146,7 +146,7 @@ export class DoublyLinkedList {
     prevNode.next = newNode
     prevNode.next.previous = newNode
 
-    this.length++
+    this.#length++
 
     return true
   }
@@ -157,12 +157,12 @@ export class DoublyLinkedList {
    * @returns {Node | null} The removed node, or null if the index is out of bounds.
    */
   remove (index: number): Node | null {
-    if (index < 0 || index >= this.length) { return null }
+    if (index < 0 || index >= this.#length) { return null }
 
-    if (index === 0 && this.head !== null) {
-      const oldHead = this.head
-      this.head = this.head.next ?? null
-      this.length--
+    if (index === 0 && this.#head !== null) {
+      const oldHead = this.#head
+      this.#head = this.#head.next ?? null
+      this.#length--
       return oldHead
     }
 
@@ -171,7 +171,7 @@ export class DoublyLinkedList {
 
     const node = prevNode.next
     prevNode.next = node ?? null
-    this.length--
+    this.#length--
 
     return node
   }
@@ -181,15 +181,16 @@ export class DoublyLinkedList {
    * @returns {Node | null} The removed node, or null if the list is empty.
    */
   removeHead (): Node | null {
-    if (this.head === null) { return null }
+    if (this.#head === null) { return null }
 
-    const oldHead = this.head
+    const oldHead = this.#head
 
-    if (this.head.next !== null) {
-      this.head = this.head.next
+    if (this.#head.next !== null) {
+      this.#head = this.#head.next
+      this.#head.previous = null
     }
 
-    this.length--
+    this.#length--
 
     return oldHead
   }
@@ -199,11 +200,13 @@ export class DoublyLinkedList {
    * @returns {Node | null} The removed node, or null if the list is empty.
    */
   removeTail (): Node | null {
-    if (this.tail === null || this.head === null) { return null }
+    if (this.#tail === null || this.#head === null) { return null }
 
-    const oldTail: Node | null = this.tail
-    this.tail = this.tail.previous
-    this.length--
+    const oldTail: Node | null = this.#tail
+    this.#tail = this.#tail.previous
+    if (this.#tail !== null) { this.#tail.next = null }
+
+    this.#length--
 
     return oldTail
   }
@@ -215,7 +218,7 @@ export class DoublyLinkedList {
   reverse (): DoublyLinkedList {
     const reversedList = new DoublyLinkedList()
 
-    let currentNode: Node | null = this.tail
+    let currentNode: Node | null = this.#tail
 
     while (currentNode !== null) {
       reversedList.push(currentNode?.data)
@@ -232,12 +235,36 @@ export class DoublyLinkedList {
   toArray (): any[] {
     const array: any[] = []
 
-    let currentNode: Node | null = this.head
+    let currentNode: Node | null = this.#head
     while (currentNode !== null) {
       array.push(currentNode.data)
       currentNode = currentNode.next
     }
 
     return array
+  }
+
+  /**
+   * @description Returns the length of the list.
+   * @returns {number} The length of the list.
+   */
+  length (): number {
+    return this.#length
+  }
+
+  /**
+   * @description Returns the head of the list.
+   * @returns {Node | null} The head of the list.
+   */
+  head (): Node | null {
+    return this.#head
+  }
+
+  /**
+   * @description Returns the tail of the list.
+   * @returns {Node | null} The tail of the list.
+   */
+  tail (): Node | null {
+    return this.#tail
   }
 }

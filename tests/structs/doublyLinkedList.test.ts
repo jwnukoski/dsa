@@ -15,7 +15,7 @@ describe('DoublyLinkedList', () => {
     linkedList.push(2)
     linkedList.push(3)
 
-    expect(linkedList.length).toEqual(3)
+    expect(linkedList.length()).toEqual(3)
   })
 
   test('pops the last node from the list', () => {
@@ -27,7 +27,7 @@ describe('DoublyLinkedList', () => {
     const poppedNode = linkedList.pop()
     expect(poppedNode).not.toEqual(null)
     expect(poppedNode?.data).toEqual(3)
-    expect(linkedList.length).toEqual(2)
+    expect(linkedList.length()).toEqual(2)
   })
 
   test('gets the node at a given index', () => {
@@ -56,7 +56,7 @@ describe('DoublyLinkedList', () => {
     linkedList.push(3)
 
     let insertResult = linkedList.insert(1, 2)
-    expect(linkedList.length).toEqual(3)
+    expect(linkedList.length()).toEqual(3)
     expect(linkedList.get(1)?.data).toEqual(2)
     expect(linkedList.get(2)?.data).toEqual(3)
     expect(insertResult).toBeTrue()
@@ -72,9 +72,11 @@ describe('DoublyLinkedList', () => {
     linkedList.push(3)
 
     const reversedList = linkedList.reverse()
+    const expectedValues = [3, 2, 1]
 
     expect(reversedList).toBeInstanceOf(DoublyLinkedList)
-    expect(reversedList).not.toEqual(linkedList)
+    expect(reversedList.toArray()).toEqual(expectedValues)
+    expect(reversedList).not.toBe(linkedList)
   })
 
   test('toArray returns a copy of the list as an array', () => {
@@ -96,7 +98,12 @@ describe('DoublyLinkedList', () => {
 
     const removedNode = linkedList.removeHead()
     expect(removedNode?.data).toEqual(1)
-    expect(linkedList.length).toEqual(2)
+    expect(linkedList.length()).toEqual(2)
+
+    const newHead = linkedList.head()
+    expect(newHead?.data).toEqual(2)
+    expect(newHead?.next?.data).toEqual(3)
+    expect(newHead?.previous).toEqual(null)
   })
 
   test('removeTail removes and returns the current tail, sets the new tail, and sets the new length', () => {
@@ -107,7 +114,12 @@ describe('DoublyLinkedList', () => {
 
     const removedNode = linkedList.removeTail()
     expect(removedNode?.data).toEqual(3)
-    expect(linkedList.length).toEqual(2)
-    expect(linkedList.tail?.data).toEqual(2)
+
+    expect(linkedList.length()).toEqual(2)
+
+    const newTail = linkedList.tail()
+    expect(newTail?.data).toEqual(2)
+    expect(newTail?.next).toEqual(null)
+    expect(newTail?.previous?.data).toEqual(1)
   })
 })
