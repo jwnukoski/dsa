@@ -1,5 +1,5 @@
 import { expect, test, describe } from 'bun:test'
-import { hasDuplicates } from '../../src/conditions/hasDuplicates'
+import { hasDuplicates } from '../../src/algos/hasDuplicates'
 
 describe('hasDuplicates', () => {
   test('returns false if there are no duplicates', () => {
