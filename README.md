@@ -37,6 +37,7 @@ console.log(binarySearch(sortedArray, 5))
 #### Structures
 - SinglyLinkedList
 - DoublyLinkedList
+- Stack
 
 #### Other Utilities
 - deepCopy
