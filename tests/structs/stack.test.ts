@@ -28,4 +28,16 @@ describe('Stack', () => {
     const stack = new Stack(existingArray)
     expect(stack.size()).toEqual(3)
   })
+
+  test('read returns undefined if none exists', () => {
+    const existingArray: string[] = []
+    const stack = new Stack(existingArray)
+    expect(stack.read()).toBeUndefined()
+  })
+
+  test('read returns value of next item', () => {
+    const existingArray: string[] = ['next', 'no']
+    const stack = new Stack(existingArray)
+    expect(stack.read()).toEqual('no')
+  })
 })

@@ -28,4 +28,16 @@ describe('Queue', () => {
     expect(removedItem).toEqual(1)
     expect(queue.length).toEqual(2)
   })
+
+  test('read returns undefined if none exists', () => {
+    const existingArray: string[] = []
+    const stack = new Queue(existingArray)
+    expect(stack.read()).toBeUndefined()
+  })
+
+  test('read returns value of next item', () => {
+    const existingArray: string[] = ['next', 'no']
+    const stack = new Queue(existingArray)
+    expect(stack.read()).toEqual('next')
+  })
 })

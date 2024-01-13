@@ -21,13 +21,21 @@ export class Queue {
 
   /**
      * @description Removes the first item from the queue, and returns it.
-     * @returns {any} The removed item, or undefined if the queue is empty.
+     * @returns {any | undefined} The removed item, or undefined if the queue is empty.
      */
-  remove (): any {
+  remove (): any | null {
     const removedItem = this.#items.shift()
 
     if (removedItem !== undefined) { this.length-- }
 
     return removedItem
+  }
+
+  /**
+   * @description Reads the next item in the queue, without removing it.
+   * @returns {any | undefined} Next item in the queue. Undefined if there is none.
+   */
+  read (): any | undefined {
+    return this.#items[0] ?? undefined
   }
 }

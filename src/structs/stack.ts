@@ -36,9 +36,9 @@ export class Stack {
   }
 
   /**
-   * @description Returns the next stack item without removing it.
+   * @description Returns the next stack item without removing it. Undefined if none exists.
    */
-  read (): any {
-    return this.#items[this.#items.length - 1]
+  read (): any | undefined {
+    return this.#items[this.#items.length - 1] ?? undefined
   }
 }
