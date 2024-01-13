@@ -11,15 +11,34 @@ export class Stack {
     this.#items = [...itemsToCopy]
   }
 
+  /**
+   * @description Adds an item to the top of the stack.
+   * @param item The item to add.
+   */
   add (item: any): void {
     this.#items.push(item)
   }
 
+  /**
+   * @description Removes the next stack item and returns the removed item.
+   * @returns {any} The removed stack item.
+   */
   remove (): any {
     return this.#items.pop()
   }
 
+  /**
+   * @description Returns the size of the stack.
+   * @returns {number} The size of the stack.
+   */
   size (): number {
     return this.#items.length
+  }
+
+  /**
+   * @description Returns the next stack item without removing it.
+   */
+  read (): any {
+    return this.#items[this.#items.length - 1]
   }
 }
