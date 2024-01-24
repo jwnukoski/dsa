@@ -16,6 +16,7 @@ export { SinglyLinkedList } from './structs/singlyLinkedList'
 export { DoublyLinkedList } from './structs/doublyLinkedList'
 export { Stack } from './structs/stack'
 export { Queue } from './structs/queue'
+export { Tree } from './structs/tree'
 
 /* Utils */
 export { deepCopy } from './utils/deepCopy'
