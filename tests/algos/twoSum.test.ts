@@ -14,7 +14,6 @@ describe('twoSums', () => {
 
   test('returns multiple sums when they exist. does not use single numbers or duplicates.', () => {
     const result = twoSums([4, 5, 1, 8, 9, 10], 9)
-    console.log(result)
     expect(result).toEqual([[4, 5], [1, 8]])
   })
 })
